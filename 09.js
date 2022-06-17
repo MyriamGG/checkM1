@@ -41,6 +41,24 @@ const { BinarySearchTree } = require("./DS");
 
 BinarySearchTree.prototype.insertWord = function (palabra) {
   // Tu código acá
+  if (palabra.length === 0) return false;
+  if (palabra.length === this.value.length) return false;
+  if (palabra === this.value) return false;
+
+  if (palabra.length > this.value.length){ // va a derecha
+    if (this.right !== null){ // pregunta si el nodo tiene algo
+       this.right.insertWord(palabra);
+    } else { // la rama esta vacia
+       this.right = new BinarySearchTree(palabra); //creo un nuevo arbol y lo pongo en la derecha
+    }
+   }
+   if (palabra.length < this.value.length){ // va a izquierda
+     if (this.left !== null){
+      this.left.insertWord(palabra)
+     } else {
+       this.left = new BinarySearchTree(palabra); //creo un nuevo arbol y lo pongo en la izquierda
+     }
+   }
 };
 
 //⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

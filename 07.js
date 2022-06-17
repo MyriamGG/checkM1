@@ -20,6 +20,14 @@
 var restArray = function(array){
     // Tu código acá
 
+    let suma = 0;
+    if (array.length === 0) return -1;
+    for (let i = 0; i < array.length; i++){
+        if (Array.isArray(array[i])){
+            suma += restArray(array[i]);
+        } else{suma = suma + array[i];}
+    }
+    return suma;
 }
 
 // No modifiques nada debajo de esta linea //

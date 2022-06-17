@@ -21,7 +21,25 @@
 function countDeep(arr) {
   // Tu código aca:
 
-} 
+  let cuentanum = 0;
+  let cuentastring = 0;
+  let cuentabool = 0;
+  let cuentaunde = 0;
+  let cuentaarr = 0;
+
+  for (let i = 0; i <= arr.length; i++){
+    if (typeof(arr[i]) === "number") cuentanum += 1;
+     else if (typeof(arr[i]) === "string") cuentastring += 1;
+           else if (typeof(arr[i]) === "boolean") cuentabool += 1;
+                 else if (typeof(arr[i]) === "undefinde") cuentaunde += 1;
+                        else if (typeof(arr[i]) === "array") cuentaarr += 1;
+  }
+  cuentaarr += 1;
+  return (((cuentaarr - cuentanum) * cuentastring) / cuentabool) ^ cuentaunde
+
+  }
+
+
 // No modifiques nada debajo de esta linea //
 
 module.exports = countDeep
